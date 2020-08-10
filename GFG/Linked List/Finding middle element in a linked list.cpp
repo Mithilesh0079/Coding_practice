@@ -1,21 +1,17 @@
 int getMiddle(Node *head)
 {
-   Node* temp= head;
-   int len=0;
-   while(head!= NULL)
-   {
-       head=head->next;
-       len++;
-   }
-   if(len%2==0)
-   len= len/2+1;
-   else
-   len= (len+1)/2;
+    if(head->next==NULL)
+    return head->data;
+    
+   Node* slow= head;
+   Node* fast= head;
    
-   for(int i=1; i<len; i++)
+   while(fast!= NULL && fast->next!= NULL)
    {
-       temp= temp->next;
+       slow= slow->next;
+       fast= fast->next->next;
    }
    
-   return temp->data;
+   
+   return slow->data;
 }
