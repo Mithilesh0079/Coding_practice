@@ -1,4 +1,39 @@
-#include<unordered_map> 
+///// Solution Optimized
+void levelOrder(Node* node)
+{
+      queue<Node*> Q;
+      Q.push(node);
+      Q.push(NULL);
+      while(Q.size()!=1)
+      {
+          Node* root= Q.front();
+          Q.pop();
+          if(root!= NULL)
+          cout<<root->data<<" ";
+          else if(root==NULL)
+                 {
+              cout<<"$ ";
+              Q.push(NULL);
+              continue;
+          }
+          
+          if(root->left!=NULL)
+          {
+              Q.push(root->left);
+              
+          }
+          if(root->right!= NULL)
+          {
+              Q.push(root->right);
+            
+          }
+      }
+      cout<<"$";
+}
+
+///simple But Not optimized
+
+/*#include<unordered_map> 
 void levelOrder(Node* node)
 {
       queue<Node*> Q;
@@ -33,4 +68,5 @@ void levelOrder(Node* node)
           }
       }
       cout<<"$";
-}
+}*/
+
