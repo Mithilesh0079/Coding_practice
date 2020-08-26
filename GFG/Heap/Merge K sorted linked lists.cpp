@@ -48,6 +48,8 @@ Node * mergeKLists(Node *arr[], int N)
            heap.pop_back();
            if(heap.size()>=1)
            shiftdown(heap, 0, heap.size());
+           else
+               break;
        }
        top->next= heap[0];
        top= top->next;
